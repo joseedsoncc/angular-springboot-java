@@ -3,6 +3,7 @@ package com.backend.springback.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.backend.springback.entity.Profissional;
 import com.backend.springback.service.ProfissionalService;
 
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 public class ProfissionalController {
 
@@ -55,11 +57,9 @@ public class ProfissionalController {
 		return service.vinculaProfissional(profissional);
 	} 
 	
-	@PutMapping("/desvinculaProfissional/{idProfissional}")
-	public Profissional desvinculaProfissional(@PathVariable Integer idProfissional) {
-		return service.desvinculaProfissional(idProfissional);
+	@PutMapping("/desvinculaProfissional")
+	public Profissional desvinculaProfissional(@RequestBody Profissional profissional) {
+		return service.desvinculaProfissional(profissional.getIdProfissional());
 	}
-	
-	
-	
+
 }
