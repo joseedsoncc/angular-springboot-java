@@ -1,0 +1,22 @@
+<header>
+  <div class="container">
+      <div style="float: left;">
+        <button id="btnProf" pButton type="button" style="margin-left: 20px; background-color: gray;"
+          label="Profissional" icon="pi pi-user" (click)="btnProf=true; btnEstab=false;">          
+        </button>
+        <button id="btnEstab" pButton type="button" style="margin-left: 20px; background-color: grey;"
+          label="Estabelecimento" icon="pi pi-users" (click)="btnProf=false; btnEstab=true;">
+        </button>
+      </div>
+  </div>
+</header>
+<br/>
+<br/>
+<br/>
+
+<div class="container">
+  <main role="main">
+    <app-profissional *ngIf="btnProf"></app-profissional>
+    <app-estabelecimento *ngIf="btnEstab"></app-estabelecimento>
+  </main>
+</div>
